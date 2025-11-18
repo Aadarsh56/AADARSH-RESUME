@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aadarsh Vidyarthi - AI & ML Engineer</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet"/>
+  
+  <link rel="stylesheet" href="style.css">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { darkMode: 'class' }
+  </script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+
+  <nav class="pill-nav" role="tablist">
+    <button id="btn-profile" class="active" onclick="showSection('profile')">Profile</button>
+    <button id="btn-skills" onclick="showSection('skills')">Stack</button>
+    <button id="btn-projects" onclick="showSection('projects')">Projects</button>
+    <button id="btn-education" onclick="showSection('education')">Education</button>
+    <div class="dark-toggle">
+      <input type="checkbox" id="dayNightToggle" class="toggle-input">
+      <label for="dayNightToggle" class="toggle-label">
+        <div class="toggle-wrapper">
+          <div class="toggle-track">
+            <div class="toggle-slider">
+              <span class="sun-icon">☀️</span>
+              <span class="moon-icon">🌙</span>
+            </div>
+          </div>
+        </div>
+      </label>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 pb-24" id="cvContent">
+    
+    <section id="profile">
+      <div class="flex flex-col items-center text-center">
+        <img src="profile.jpg" alt="Aadarsh Vidyarthi" class="profile-photo" />
+        
+        <h1 class="name-title">Aadarsh Vidyarthi</h1>
+        <p class="text-lg font-medium mt-2">AI/ML Engineer &bull; NLP Researcher &bull; Competitive Programmer</p>
+        <span class="role-availability">Open for Internships</span>
+        
+        <div class="flex flex-wrap justify-center gap-4 mt-6 text-sm font-semibold">
+          <a href="tel:+919125656682" class="hover:text-indigo-600 flex items-center gap-1">
+            📞 +91 9125656682
+          </a>
+          <a href="mailto:aadarshvidyarthi73@gmail.com" class="hover:text-indigo-600 flex items-center gap-1">
+            ✉️ aadarshvidyarthi73@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/aadarsh-vidyarthi-536483291/" target="_blank" class="hover:text-indigo-600 flex items-center gap-1">
+            🔗 LinkedIn
+          </a>
+          <a href="https://github.com/Aadarsh56" target="_blank" class="hover:text-indigo-600 flex items-center gap-1">
+            🐙 GitHub
+          </a>
+        </div>
+      </div>
+
+      <div class="mt-8">
+        <h3 class="text-xl font-bold mb-3 border-b pb-2 border-gray-300 dark:border-gray-600">About Me</h3>
+        <p>
+          I am a pre-final year Computer Science student specializing in <strong>Artificial Intelligence and Machine Learning</strong>. 
+          My passion lies in <strong>Natural Language Processing (NLP)</strong> and <strong>Soft Computing</strong>. I actively solve complex algorithmic problems in C++ and Python and am currently researching Transformer-based models for healthcare applications.
+        </p>
+      </div>
+    </section>
+
+    <section id="skills" class="hidden">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <div>
+          <h3 class="text-lg font-bold mb-4 text-indigo-600 dark:text-indigo-400">🤖 AI & Machine Learning</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge">TensorFlow</span>
+            <span class="skill-badge">PyTorch</span>
+            <span class="skill-badge">Scikit-Learn</span>
+            <span class="skill-badge">NLP (Spacy/NLTK)</span>
+            <span class="skill-badge">Transformers (BERT)</span>
+            <span class="skill-badge">Pandas & NumPy</span>
+            <span class="skill-badge">Genetic Algorithms</span>
+            <span class="skill-badge">Fuzzy Logic</span>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="text-lg font-bold mb-4 text-pink-600 dark:text-pink-400">💻 Core & HPC</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge">Python (Advanced)</span>
+            <span class="skill-badge">C++ (DSA)</span>
+            <span class="skill-badge">CUDA (Parallel Comp.)</span>
+            <span class="skill-badge">Hadoop / Big Data</span>
+            <span class="skill-badge">SQL</span>
+            <span class="skill-badge">Git/GitHub</span>
+          </div>
+        </div>
+
+        <div class="md:col-span-2">
+          <h3 class="text-lg font-bold mb-4 text-teal-600 dark:text-teal-400">🌐 Web & Tools</h3>
+          <div class="flex flex-wrap gap-2">
+            <span class="skill-badge">Flask / FastAPI</span>
+            <span class="skill-badge">HTML5 & CSS3</span>
+            <span class="skill-badge">React.js</span>
+            <span class="skill-badge">Linux Environment</span>
+            <span class="skill-badge">Jupyter Notebooks</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="hidden">
+      <div class="space-y-6">
+        
+        <div>
+          <div class="flex justify-between items-baseline">
+            <h3 class="text-xl font-bold text-indigo-700 dark:text-indigo-400">Disease Diagnosis NLP System</h3>
+            <span class="text-xs bg-indigo-100 text-indigo-800 px-2 py-1 rounded">NLP / Healthcare</span>
+          </div>
+          <p class="mt-2 text-sm">
+            Developed a web-based prediction system utilizing a dataset of over <strong>700 diseases</strong>. 
+            Implemented binary symptom classification to accurately map user inputs to potential medical conditions using Natural Language Processing techniques.
+          </p>
+        </div>
+
+        <div>
+          <div class="flex justify-between items-baseline">
+            <h3 class="text-xl font-bold text-indigo-700 dark:text-indigo-400">Mental Health Classification w/ BERT</h3>
+            <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">Deep Learning</span>
+          </div>
+          <p class="mt-2 text-sm">
+            Fine-tuned a <strong>BERT model</strong> to analyze text for mental health indicators. 
+            Classifies text inputs into specific labels such as Anxiety, Depression, and Suicidal ideation to assist in early detection systems.
+          </p>
+        </div>
+
+        <div>
+          <div class="flex justify-between items-baseline">
+            <h3 class="text-xl font-bold text-indigo-700 dark:text-indigo-400">Supportive Student Chatbot</h3>
+            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Generative AI</span>
+          </div>
+          <p class="mt-2 text-sm">
+            Created a custom dataset and trained a conversational agent designed to support college students. 
+            The bot handles academic queries and provides mental well-being resources.
+          </p>
+        </div>
+
+        <div>
+          <div class="flex justify-between items-baseline">
+            <h3 class="text-xl font-bold text-indigo-700 dark:text-indigo-400">HPC & Big Data Implementation</h3>
+            <span class="text-xs bg-orange-100 text-orange-800 px-2 py-1 rounded">Hadoop / CUDA</span>
+          </div>
+          <p class="mt-2 text-sm">
+            Configured a multi-node <strong>Hadoop</strong> cluster to execute distributed Word Count programs. 
+            Explored high-performance computing concepts including Tiled Algorithms and Divergence using <strong>CUDA C++</strong>.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="education" class="hidden">
+      <ul class="space-y-4">
+        <li class="border-l-4 border-indigo-500 pl-4">
+          <h3 class="text-lg font-bold">B.Tech in Computer Science (AI & ML)</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Bennett University (The Times Group) | 2023 - 2027</p>
+          <p class="mt-1">Current Status: 3rd Year Student</p>
+        </li>
+        <li class="border-l-4 border-pink-500 pl-4">
+          <h3 class="text-lg font-bold">Intermediate & High School</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400">Delhi Public School / Gurukul The School</p>
+          <p class="mt-1">Focus: Physics, Chemistry, Mathematics</p>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <button id="downloadPdfBtn">
+    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+    Save as PDF
+  </button>
+
+  <script>
+    // Tab Switching Logic
+    const sections = ['profile', 'skills', 'projects', 'education'];
+    
+    function showSection(id) {
+      sections.forEach(sec => {
+        const el = document.getElementById(sec);
+        const btn = document.getElementById('btn-' + sec);
+        
+        if (sec === id) {
+          el.classList.remove('hidden');
+          // Animate entry
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(10px)';
+          setTimeout(() => {
+            el.style.transition = 'all 0.4s ease';
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+          }, 50);
+          btn.classList.add('active');
+        } else {
+          el.classList.add('hidden');
+          btn.classList.remove('active');
+        }
+      });
+    }
+
+    // Dark Mode Toggle
+    const toggle = document.getElementById('dayNightToggle');
+    toggle.addEventListener('change', () => {
+      document.body.classList.toggle('dark', toggle.checked);
+    });
+
+    // PDF Generation
+    const pdfBtn = document.getElementById('downloadPdfBtn');
+    pdfBtn.addEventListener('click', async () => {
+      pdfBtn.disabled = true;
+      pdfBtn.innerHTML = 'Generating...';
+      
+      // Temporarily show all sections for PDF
+      sections.forEach(id => document.getElementById(id).classList.remove('hidden'));
+      
+      try {
+        const canvas = await html2canvas(document.querySelector('main'), { 
+            scale: 2,
+            useCORS: true, 
+            backgroundColor: document.body.classList.contains('dark') ? '#0f172a' : '#e0e7ff' 
+        });
+        
+        const imgData = canvas.toDataURL('image/png');
+        const { jsPDF } = window.jspdf;
+        const pdf = new jsPDF('p', 'pt', 'a4');
+        
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const imgProps = pdf.getImageProperties(imgData);
+        const pdfHeight = (imgProps.height * pageWidth) / imgProps.width;
+        
+        pdf.addImage(imgData, 'PNG', 0, 0, pageWidth, pdfHeight);
+        pdf.save('Aadarsh_Vidyarthi_CV.pdf');
+      } catch (err) {
+        console.error(err);
+        alert('Error generating PDF');
+      }
+      
+      // Reset View
+      showSection('profile');
+      pdfBtn.disabled = false;
+      pdfBtn.innerHTML = '<svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg> Save as PDF';
+    });
+  </script>
+</body>
+</html>
